@@ -26,7 +26,9 @@ class RepositoryAdapter(
                 (oldItem.name == newItem.name && oldItem.description == oldItem.description)
         })
 
-    init { diffUtil.submitList(emptyList()) }
+    init {
+        diffUtil.submitList(emptyList())
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val binding = ItemRepositoryBinding.inflate(
@@ -47,4 +49,6 @@ class RepositoryAdapter(
     fun submitList(items: List<RepositoryEntity>) {
         diffUtil.submitList(items)
     }
+
+    fun getList() = diffUtil.currentList
 }

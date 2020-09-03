@@ -15,7 +15,7 @@ class UserInfoViewModel(
     private val fetchRepositoriesUseCase: FetchRepositoriesUseCase
 ) : BaseViewModel<UserInfoViewModel.ViewState, UserInfoViewModel.Action>(ViewState()) {
 
-    override fun onReduceState(viewAction: Action) = when(viewAction) {
+    override fun onReduceState(viewAction: Action) = when (viewAction) {
         is Action.UserInfoLoadingSuccess -> state.copy(
             isError = false,
             userInfo = viewAction.userInfo,
@@ -63,7 +63,11 @@ class UserInfoViewModel(
     ) : BaseViewState
 
     sealed class Action : BaseAction {
-        class UserInfoLoadingSuccess(val userInfo: UserEntity, val repoList: List<RepositoryEntity>) : Action()
+        class UserInfoLoadingSuccess(
+            val userInfo: UserEntity,
+            val repoList: List<RepositoryEntity>
+        ) : Action()
+
         object UserInfoLoadingFailure : Action()
     }
 }

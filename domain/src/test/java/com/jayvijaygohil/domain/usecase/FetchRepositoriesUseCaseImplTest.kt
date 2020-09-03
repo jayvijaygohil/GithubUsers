@@ -2,9 +2,7 @@ package com.jayvijaygohil.domain.usecase
 
 import com.jayvijaygohil.domain.entity.RepositoryEntity
 import com.jayvijaygohil.domain.repository.UserRepository
-import com.jayvijaygohil.domain.usecase.FetchRepositoriesUseCase.Result.Error
-import com.jayvijaygohil.domain.usecase.FetchRepositoriesUseCase.Result.NoRepositories
-import com.jayvijaygohil.domain.usecase.FetchRepositoriesUseCase.Result.Success
+import com.jayvijaygohil.domain.usecase.FetchRepositoriesUseCase.Result.*
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

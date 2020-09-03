@@ -18,12 +18,13 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.test.AutoCloseKoinTest
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29], application = TestApplication::class)
-class RepositoryViewHolderTest {
+class RepositoryViewHolderTest : AutoCloseKoinTest() {
     private lateinit var context: Context
     private lateinit var inflatedView: View
     private lateinit var clickListener: ItemClickListener

@@ -14,11 +14,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start"
+        android:text="@string/last_updated_title"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/last_updated"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/last_updated_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/last_updated"
@@ -36,10 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="start"
+        android:text="@string/stars_title"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/stars_count"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/last_updated_title"
-        android:text="@string/stars_title" />
+        app:layout_constraintTop_toBottomOf="@id/last_updated_title" />
 
     <TextView
         android:id="@+id/stars_count"
@@ -58,10 +60,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="start"
+        android:text="@string/forks_title"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/forks_count"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stars_count_title"
-        android:text="@string/forks_title" />
+        app:layout_constraintTop_toBottomOf="@id/stars_count_title" />
 
     <TextView
         android:id="@+id/forks_count"

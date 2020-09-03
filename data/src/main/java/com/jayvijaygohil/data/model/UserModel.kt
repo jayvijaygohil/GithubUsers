@@ -10,7 +10,7 @@ data class UserModel(
     @field:SerializedName("avatar_url") val avatarUrl: String
 )
 
-fun UserModel.toDomainModel() : UserEntity {
+fun UserModel.toDomainModel(): UserEntity {
     val name = if (displayName.isNullOrBlank()) userName else displayName
 
     return UserEntity(

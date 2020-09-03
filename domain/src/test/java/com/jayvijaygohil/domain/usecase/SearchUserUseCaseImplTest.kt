@@ -2,14 +2,12 @@ package com.jayvijaygohil.domain.usecase
 
 import com.jayvijaygohil.domain.entity.UserEntity
 import com.jayvijaygohil.domain.repository.UserRepository
-import com.jayvijaygohil.domain.usecase.SearchUserUseCase.Result.Error
-import com.jayvijaygohil.domain.usecase.SearchUserUseCase.Result.NoSuchUserFound
-import com.jayvijaygohil.domain.usecase.SearchUserUseCase.Result.Success
+import com.jayvijaygohil.domain.usecase.SearchUserUseCase.Result.*
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 

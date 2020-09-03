@@ -12,11 +12,18 @@ import com.jayvijaygohil.githubusers.common.*
 import com.jayvijaygohil.githubusers.databinding.FragmentUserInfoBinding
 import com.jayvijaygohil.githubusers.feature.repository_detail.RepoDetailDialog
 import com.jayvijaygohil.githubusers.feature.user_info.recyclerview.RepositoryAdapter
+import com.jayvijaygohil.githubusers.feature.user_info.recyclerview.SpaceItemDecoration
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 class UserInfoFragment : Fragment(R.layout.fragment_user_info), ItemClickListener {
-    private var binding: FragmentUserInfoBinding? = null
+
+    companion object {
+        private const val ANIMATION_TIME_IN_MILLI = 1000L
+    }
+
+    var binding: FragmentUserInfoBinding? = null
+        private set
 
     private val adapter: RepositoryAdapter by inject { parametersOf(this as ItemClickListener) }
     private val viewModel: UserInfoViewModel by inject()
@@ -34,6 +41,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info), ItemClickListene
 
         binding?.apply {
             recyclerView.adapter = adapter
+            context?.let { recyclerView.addItemDecoration(SpaceItemDecoration(it)) }
             searchButton.setOnClickListener {
                 val searchKeyword = searchField.editText?.text?.toString()
                 viewModel.searchUser(searchKeyword)
@@ -45,7 +53,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info), ItemClickListene
 
     override fun onItemClick(item: RepositoryEntity) {
         activity?.supportFragmentManager?.let {
-            RepoDetailDialog.newInstance(item).show(it, "Testing")
+            RepoDetailDialog.newInstance(item).show(it, RepoDetailDialog::class.simpleName)
         }
     }
 
@@ -53,7 +61,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info), ItemClickListene
         val textView = binding?.nameTextView ?: return
 
         textView.setTextVisibility(displayName)
-        textView.slideInUp(AnimatorSet(), 1000L)
+        textView.slideInUp(AnimatorSet(), ANIMATION_TIME_IN_MILLI)
     }
 
     private fun bindAvatar(avatarUrl: String?) {
@@ -65,15 +73,20 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info), ItemClickListene
         }
 
         imageView.load(avatarUrl) {
-            target {
-                imageView.setImageDrawable(it)
-                imageView.slideInUp(AnimatorSet(), 1000L)
-            }
+            target(
+                onError = {
+                    imageView.hide()
+                },
+                onSuccess = {
+                    imageView.setImageDrawable(it)
+                    imageView.slideInUp(AnimatorSet(), ANIMATION_TIME_IN_MILLI)
+                }
+            )
         }
     }
 
     private fun bindRepos(list: List<RepositoryEntity>) {
         adapter.submitList(list)
-        binding?.recyclerView?.slideInUp(AnimatorSet(), 1000L)
+        binding?.recyclerView?.slideInUp(AnimatorSet(), ANIMATION_TIME_IN_MILLI)
     }
 }

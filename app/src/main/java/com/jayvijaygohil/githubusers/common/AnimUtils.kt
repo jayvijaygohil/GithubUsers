@@ -3,9 +3,7 @@ package com.jayvijaygohil.githubusers.common
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
 
 fun View.slideInUp(animatorSet: AnimatorSet, duration: Long) {
     val distance = bottom.div(2).toFloat()

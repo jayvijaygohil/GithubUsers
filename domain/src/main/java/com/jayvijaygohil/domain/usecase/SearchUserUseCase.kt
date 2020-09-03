@@ -14,9 +14,11 @@ interface SearchUserUseCase {
     suspend fun execute(userName: String): Result
 }
 
-internal class SearchUserUseCaseImpl(private val userRepository: UserRepository) : SearchUserUseCase {
+internal class SearchUserUseCaseImpl(private val userRepository: UserRepository) :
+    SearchUserUseCase {
     override suspend fun execute(userName: String): Result =
         runCatching {
-            userRepository.searchUser(userName)?.let { Result.Success(it) } ?: Result.NoSuchUserFound
+            userRepository.searchUser(userName)?.let { Result.Success(it) }
+                ?: Result.NoSuchUserFound
         }.getOrElse { Result.Error(it) }
 }
