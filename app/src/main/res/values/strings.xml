@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">GithubUsers</string>
+    <string name="app_name">Take Home</string>
+    <string name="search_field_error">Sorry! Looks like we missed the shot.</string>
+    <string name="search_field_hint">Enter a github user id</string>
+    <string name="search_button">Search</string>
+    <string name="last_updated_title">Last Updated</string>
+    <string name="stars_title">Stars</string>
+    <string name="forks_title">Forks</string>
 </resources>

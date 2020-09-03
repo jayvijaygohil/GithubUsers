@@ -10,8 +10,7 @@ class UserModelTest {
             id = 1,
             userName = "userName",
             displayName = "displayName",
-            avatarUrl = "avatarUrl",
-            publicRepos = 3
+            avatarUrl = "avatarUrl"
         )
 
         val result = subject.toDomainModel()
@@ -19,7 +18,6 @@ class UserModelTest {
         assertEquals("1", result.id)
         assertEquals("displayName", result.displayName)
         assertEquals("avatarUrl", result.avatarUrl)
-        assertEquals(true, result.hasRepositories)
     }
 
     @Test
@@ -28,8 +26,7 @@ class UserModelTest {
             id = 1,
             userName = "userName",
             displayName = "displayName",
-            avatarUrl = "avatarUrl",
-            publicRepos = 3
+            avatarUrl = "avatarUrl"
         )
 
         val result = subject.toDomainModel()
@@ -37,7 +34,6 @@ class UserModelTest {
         assertEquals("1", result.id)
         assertEquals("displayName", result.displayName)
         assertEquals("avatarUrl", result.avatarUrl)
-        assertEquals(true, result.hasRepositories)
     }
 
     @Test
@@ -46,8 +42,7 @@ class UserModelTest {
             id = 1,
             userName = "userName",
             displayName = "displayName",
-            avatarUrl = "avatarUrl",
-            publicRepos = 0
+            avatarUrl = "avatarUrl"
         )
 
         val result = subject.toDomainModel()
@@ -55,7 +50,6 @@ class UserModelTest {
         assertEquals("1", result.id)
         assertEquals("displayName", result.displayName)
         assertEquals("avatarUrl", result.avatarUrl)
-        assertEquals(false, result.hasRepositories)
     }
 
     @Test
@@ -64,8 +58,7 @@ class UserModelTest {
             id = 1,
             userName = "userName",
             displayName = "displayName",
-            avatarUrl = "avatarUrl",
-            publicRepos = -1
+            avatarUrl = "avatarUrl"
         )
 
         val result = subject.toDomainModel()
@@ -73,6 +66,5 @@ class UserModelTest {
         assertEquals("1", result.id)
         assertEquals("displayName", result.displayName)
         assertEquals("avatarUrl", result.avatarUrl)
-        assertEquals(false, result.hasRepositories)
     }
 }

@@ -41,8 +41,7 @@ class UserRepositoryImplTest {
                 id = 1,
                 userName = "userName",
                 displayName = "displayName",
-                avatarUrl = "avatarUrl",
-                publicRepos = 0
+                avatarUrl = "avatarUrl"
             )
 
             whenever(service.searchUser(user)).thenReturn(data)

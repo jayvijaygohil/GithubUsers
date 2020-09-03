@@ -2,17 +2,17 @@ package com.jayvijaygohil.data.network
 
 import com.jayvijaygohil.data.model.RepositoryModel
 import com.jayvijaygohil.data.model.UserModel
-import retrofit2.http.POST
+import retrofit2.http.GET
 import retrofit2.http.Path
 
 internal interface GithubService {
-    @POST("/users/{UserName}")
+    @GET("users/{username}")
     suspend fun searchUser(
-        @Path("UserName") userName: String
+        @Path("username") userName: String
     ): UserModel?
 
-    @POST("/users/{UserName}/repos")
+    @GET("users/{username}/repos")
     suspend fun fetchRepositories(
-        @Path("UserName") userName: String
+        @Path("username") userName: String
     ): List<RepositoryModel>?
 }

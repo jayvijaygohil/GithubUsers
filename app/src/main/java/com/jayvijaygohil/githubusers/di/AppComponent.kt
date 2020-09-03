@@ -6,6 +6,7 @@ import com.jayvijaygohil.domain.di.koinUseCaseModule
 
 val koinAppComponent = listOf(
     koinNetworkModule,
+    koinAdapterModule,
     koinViewModelModule,
     koinUseCaseModule,
     koinRepositoryModule

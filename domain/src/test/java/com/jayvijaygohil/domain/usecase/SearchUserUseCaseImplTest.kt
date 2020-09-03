@@ -30,9 +30,7 @@ class SearchUserUseCaseImplTest {
         val data = UserEntity(
             id = "id",
             displayName = "displayName",
-            userName = "userName",
-            avatarUrl = "avatarUrl",
-            hasRepositories = true
+            avatarUrl = "avatarUrl"
         )
         whenever(repository.searchUser(user)).thenReturn(data)
 

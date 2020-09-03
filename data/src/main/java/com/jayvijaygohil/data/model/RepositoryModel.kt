@@ -7,8 +7,8 @@ data class RepositoryModel(
     val id: Int,
     val name: String,
     val description: String?,
-    val updatedAt: String,
-    val stargazersCount: Int,
+    @SerializedName("updated_at")val updatedAt: String,
+    @SerializedName("stargazers_count") val stargazersCount: Int,
     @SerializedName("forks_count") val forksCount: Int
 )
 
